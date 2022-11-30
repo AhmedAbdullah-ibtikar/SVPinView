@@ -31,7 +31,7 @@ public enum SVPinViewDeleteButtonAction: Int {
 
 private class SVPinViewFlowLayout: UICollectionViewFlowLayout {
     override var developmentLayoutDirection: UIUserInterfaceLayoutDirection { return .leftToRight }
-    override var flipsHorizontallyInOppositeLayoutDirection: Bool { return true }
+    override var flipsHorizontallyInOppositeLayoutDirection: Bool { return false }
 }
 
 @objcMembers
@@ -110,7 +110,7 @@ public class SVPinView: UIView {
         collectionView.register(collectionViewNib, forCellWithReuseIdentifier: reuseIdentifier)
         flowLayout.scrollDirection = .vertical
         collectionView.isScrollEnabled = false
-                
+        collectionView.semanticContentAttribute = .forceLeftToRight
         self.addSubview(view)
         view.frame = bounds
         view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
